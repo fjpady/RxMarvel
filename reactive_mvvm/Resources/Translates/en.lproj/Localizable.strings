@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  reactive_mvvm
+
+  Created by Francisco José Ruiz on 15/11/2020.
+  Copyright © 2020 Francisco José Ruiz. All rights reserved.
+*/
+
+// MARK: Common
+"Common.invalid_password" = "The password must have at least 6 characters";
+"Common.invalid_email" = "You must enter a valid email";
+"Common.valid_password" = "The password is valid";
+"Common.valid_email" = "The email is valid";
+"Common.fill_fields" = "Must be fill all fields";
+"Common.no_internet_connection" = "You don't have an internet connection.";
+
+//MARK: LoginView
+"LoginView.title" = "Log in reactive mvvm with Marvel!";
+"LoginView.mail_label" = "User email";
+"LoginView.mail_placeholder" = "Type your user or email here";
+"LoginView.password_label" = "Password";
+"LoginView.password_placeholder" = "Type your password here";
+"LoginView.login_button" = "Log in";
+"LoginView.hint_connection" = "To connect use \na valid email \n6 characters password";
+
+//MARK: SplashView
+"SplashView.title" = "Basic Example of MVVM Application with Reactive Swift";
+"SplashView.list" = "
+* RxSwift
+* Mvvm pattern
+* Cocoa Pods (Rx only & Kingfisher)
+* Translates
+* Enviroments
+* Annimations (withouth third party libraries)
+* Design patterns
+* Native networking (withouth Alamofire)
+* Interface styles dark & light
+* Unit test
+* StoryBoards & xib (git friendly)
+";
+"SplashView.continue" = "Continue";
+
+//MARK: CharacterListView
+"CharacterListView.title" = "Marvel characters";
+"CharacterListView.search_bar" = "Find a character";
+
+//MARK: CharacterCell
+"CharacterCell.title" = "Nombre:";
+"CharacterCell.description" = "Description:";
+
+//MARK: CharacterDetailsView
+"CharacterDetailsView.title" = "Title:";
+"CharacterDetailsView.description" = "Description:";
+"CharacterDetailsView.comics" = "Comics";
+"CharacterDetailsView.series" = "Series";
+"CharacterDetailsView.stories" = "Stories";
+"CharacterDetailsView.events" = "Events";
+"CharacterDetailsView.urls" = "Urls";
+
+"CharacterDetailsView.comics_amount" = "%@ comics";
+"CharacterDetailsView.series_amount" = "%@ series";
+"CharacterDetailsView.stories_amount" = "%@ stories";
+"CharacterDetailsView.events_amount" = "%@ events";
+"CharacterDetailsView.urls_amount" = "%@ urls";

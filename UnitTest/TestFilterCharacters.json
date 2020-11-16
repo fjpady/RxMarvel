@@ -1,0 +1,326 @@
+{
+    "code": 200,
+    "status": "Ok",
+    "copyright": "© 2020 MARVEL",
+    "attributionText": "Data provided by Marvel. © 2020 MARVEL",
+    "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2020 MARVEL</a>",
+    "etag": "af8d10974227058c8306aa2a380448c913cc96fd",
+    "data": {
+        "offset": 0,
+        "limit": 10,
+        "total": 1493,
+        "count": 10,
+        "results": [
+            {
+                "id": 1011334,
+                "name": "personaje 00",
+                "description": "",
+                "modified": "2014-04-29T14:18:17-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+                            "name": "Avengers: The Initiative (2007) #14"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                            "name": "Avengers: The Initiative (2007 - 2010)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/19947",
+                            "name": "Cover #19947",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                            "name": "Secret Invasion"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=7c02c27437aa8d5892e6018c6dac3b1a"
+                    }
+                ]
+            },
+            {
+                "id": 1011334,
+                "name": "personaje 01",
+                "description": "",
+                "modified": "2014-04-29T14:18:17-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+                            "name": "Avengers: The Initiative (2007) #14"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                            "name": "Avengers: The Initiative (2007 - 2010)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/19947",
+                            "name": "Cover #19947",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                            "name": "Secret Invasion"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=7c02c27437aa8d5892e6018c6dac3b1a"
+                    }
+                ]
+            },
+            {
+                "id": 1011334,
+                "name": "personaje 02",
+                "description": "",
+                "modified": "2014-04-29T14:18:17-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+                            "name": "Avengers: The Initiative (2007) #14"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                            "name": "Avengers: The Initiative (2007 - 2010)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/19947",
+                            "name": "Cover #19947",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                            "name": "Secret Invasion"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=7c02c27437aa8d5892e6018c6dac3b1a"
+                    }
+                ]
+            },
+            {
+                "id": 1011334,
+                "name": "personaje 03",
+                "description": "",
+                "modified": "2014-04-29T14:18:17-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+                            "name": "Avengers: The Initiative (2007) #14"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                            "name": "Avengers: The Initiative (2007 - 2010)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/19947",
+                            "name": "Cover #19947",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                            "name": "Secret Invasion"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=7c02c27437aa8d5892e6018c6dac3b1a"
+                    }
+                ]
+            },
+            {
+                "id": 1011334,
+                "name": "personaje 04",
+                "description": "",
+                "modified": "2014-04-29T14:18:17-0400",
+                "thumbnail": {
+                    "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+                    "extension": "jpg"
+                },
+                "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+                "comics": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/comics",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/comics/21366",
+                            "name": "Avengers: The Initiative (2007) #14"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "series": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/series",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+                            "name": "Avengers: The Initiative (2007 - 2010)"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "stories": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/stories",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/stories/19947",
+                            "name": "Cover #19947",
+                            "type": "cover"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "events": {
+                    "available": 1,
+                    "collectionURI": "http://gateway.marvel.com/v1/public/characters/1011334/events",
+                    "items": [
+                        {
+                            "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+                            "name": "Secret Invasion"
+                        }
+                    ],
+                    "returned": 1
+                },
+                "urls": [
+                    {
+                        "type": "detail",
+                        "url": "http://marvel.com/characters/74/3-d_man?utm_campaign=apiRef&utm_source=7c02c27437aa8d5892e6018c6dac3b1a"
+                    }
+                ]
+            }
+        ]
+    }
+}
