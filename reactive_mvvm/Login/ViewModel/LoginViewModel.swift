@@ -12,9 +12,6 @@ import RxCocoa
 
 protocol LoginViewModelProtocol {
     func transform(_ input: LoginViewModel.Input) -> LoginViewModel.Output
-    var mailFieldValidationSubject: PublishSubject<String> { get }
-    var messageSubject: PublishSubject<String> { get }
-    var loginEventSubject: PublishSubject<Void> { get }
     var disposeBag: DisposeBag { get }
 }
 
