@@ -171,7 +171,11 @@ class CharacterListView: UIViewController {
         characterDetailsView = CharacterDetailsView.create(viewModel: vm)
         
         characterDetailsView.modalPresentationStyle = .fullScreen
-        self.present(characterDetailsView, animated: true, completion: nil)
+        let nav1 = UINavigationController()
+        nav1.isNavigationBarHidden = true
+        nav1.viewControllers = [characterDetailsView]
+        nav1.modalPresentationStyle = .fullScreen
+        self.present(nav1, animated:true, completion: nil)
     }
 
     //MARK: IBActions

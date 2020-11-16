@@ -164,7 +164,7 @@ class CharacterDetailsView: UIViewController {
             title: titleLabels[0].text!, viewModel: CharacterElementsViewModel(elements: elements)
         )
         characterElementsView.modalPresentationStyle = .fullScreen
-        self.present(characterElementsView, animated: true, completion: nil)
+        navigationController?.pushViewController(characterElementsView, animated: true)
     }
     
     /// On handle Error

@@ -87,7 +87,7 @@ class CharacterElementsView: UIViewController {
     
     //MARK: IBActions
     @IBAction func dismissTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
 
