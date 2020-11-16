@@ -11,8 +11,8 @@ pod install
 ```
 
 ## Configuración
-* Se necesita una [api key de Marvel](https://developer.marvel.com/)
-* Hay que introducirla en el fichero de constantes *Constants.swift*
+* Se necesita una [api key de Marvel](https://developer.marvel.com/).
+* Hay que introducirla en el fichero de constantes *Constants.swift*.
 
 ```swift
 
@@ -23,4 +23,4 @@ struct api_keys {
 ```
 
 ## Login
-Para iniciar sesión en la pantalla login solamente hay que meter un email válido tipo email@valido.es y una contraseña válida de 6 caracteres tipo 123456
+Para iniciar sesión en la pantalla login solamente hay que introducir un email válido tipo email@valido.es y una contraseña válida de 6 caracteres tipo 123456.
