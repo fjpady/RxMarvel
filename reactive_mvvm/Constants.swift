@@ -14,7 +14,7 @@ var locale = "es"
 struct Constants {
     
     /// Global url vars
-    struct Storyboards {
+    struct Storyboards {fjpady
         static let Main = "Main"
     }
     
