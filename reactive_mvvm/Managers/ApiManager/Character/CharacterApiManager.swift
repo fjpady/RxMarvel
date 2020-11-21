@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Alamofire
 
 class CharacterApiManager {
     
@@ -18,11 +19,11 @@ class CharacterApiManager {
     func getCharacterListWith(limit: String?, offset: String?, name: String? = nil) -> Observable<[Character]> {
         let request = Request()
         
+        let parameters = self.getPageParameters(limit: limit, offset: offset, name: name)
+        
         return Observable.create { observer in
-            let params = self.addPageParameters(limit: limit, offset: offset, name: name)
-            
             let url = Constants.Character.list
-            request.regular(url: url, extraParams: params)
+            request.regular(url, parameters: parameters, method: .get, encoding: URLEncoding.default)
                 .subscribe(
                     onNext: { data in
                         do {
@@ -32,7 +33,6 @@ class CharacterApiManager {
                             observer.onNext(result.getListOfCharacters())
                         }
                         catch let error {
-                            print("API_ERROR: \(error.localizedDescription)")
                             let ce = CustomError(title: error.localizedDescription)
                             observer.onError(ce)
                         }
@@ -59,7 +59,7 @@ class CharacterApiManager {
         
         return Observable.create { observer in
             let url = String(format: Constants.Character.details, "\(id)")
-            request.regular(url: url)
+            request.regular(url, method: .get, encoding: URLEncoding.default)
                 .subscribe(
                     onNext: { data in
                         do {
@@ -76,7 +76,6 @@ class CharacterApiManager {
                             
                         }
                         catch let error {
-                            print("API_ERROR: \(error.localizedDescription)")
                             let ce = CustomError(title: error.localizedDescription)
                             observer.onError(ce)
                         }
@@ -96,8 +95,14 @@ class CharacterApiManager {
         
     }
     
-    private func addPageParameters(limit: String?, offset: String?, name: String?) -> String {
-        return (name != nil ? ("&nameStartsWith=" + name!) : "") + (offset != nil ? ("&offset=" + offset!) : "") + (limit != nil ? ("&limit=" + limit!) : "")
+    private func getPageParameters(limit: String?, offset: String?, name: String?) -> [String: Any] {
+        var parameters = [String: Any]()
+        
+        if let obj = limit { parameters["limit"] = obj }
+        if let obj = offset { parameters["offset"] = obj }
+        if let obj = name { parameters["name"] = obj }
+        
+        return parameters
     }
     
 }

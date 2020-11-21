@@ -9,6 +9,8 @@
 import Foundation
 import RxSwift
 import CommonCrypto
+import Alamofire
+import Reachability
 
 class Request {
     
@@ -20,71 +22,82 @@ class Request {
         case post = "POST"
     }
     
-    func regular(url: String, contentType: ContentType = .application_json, method: Method = .get, extraParams: String? = nil) -> Observable<Data> {
+    
+    func regular(_ url: String, parameters: [String: Any]? = nil, headers:[String: String]? = nil, method: HTTPMethod, encoding: ParameterEncoding)  -> Observable<Data> {
         return Observable.create { observer in
             
-            let session = URLSession.shared
-            var fullUrl = url+self.addAuthParameters()
-            if let params = extraParams {
-               fullUrl += params
+            /// Check connection
+            let reachability = try! Reachability()
+            if reachability.connection == .unavailable {
+                //let e = SDError()
+                //e.notReachableError()
+                //listener.errorHandler(e)
+                
             }
             
-            var request = URLRequest(url: URL(string: fullUrl)!)
-            
-            request.httpMethod = method.rawValue
-            request.addValue(contentType.rawValue, forHTTPHeaderField: "Content-Type")
-            
-            session.dataTask(with: request) { (data, response, error) in
-                /// Error
-                if let e = error {
-                    let error = CustomError(
-                        title: e.localizedDescription,
-                        description: e.localizedDescription,
-                        code: 0
-                    )
-                    observer.onError(error)
-                    observer.onCompleted()
+            /// Check parameters
+            var myParams: [String: Any] = self.getAuthParameters()
+            if let newParameters = parameters {
+                for param in newParameters {
+                    myParams[param.key] = param.value
                 }
-                guard let data = data, let response = response as? HTTPURLResponse, error == nil else { return }
-                
-                if (200...299).contains(response.statusCode) {
-                    observer.onNext(data)
-                }
-                else {
-                    do {
-                        let decoder = JSONDecoder()
-                        let customErrorJson = try decoder.decode(CustomErrorJson.self, from: data)
+            }
+            
+            /// Check headers
+            var myHeaders = [String: String]()
+            if let obj = headers{
+                myHeaders = obj
+            }
+            
+            Alamofire.request(url, method: method, parameters: myParams, encoding: encoding ,headers: myHeaders)
+                .validate(statusCode: 200..<300)
+                .responseJSON { response in
+                    switch response.result {
+                    case .success:
+                        if let data = response.data {
+                            observer.onNext(data)
+                        }
                         
-                        let error = CustomError(
-                            title: customErrorJson.statusMessage,
-                            description: customErrorJson.statusMessage,
-                            code: customErrorJson.statusCode
-                        )
-                        print("API_ERROR: url \(url)")
-                        print("API_ERROR: statusCode \(response.statusCode)")
-                        observer.onError(error)
-                    } catch let error {
-                        print("JSON_DECODER_API_ERROR: \(error.localizedDescription)")
-                        observer.onError(error)
+                    case .failure( _):
+                        if let data = response.data {
+                           do {
+                                let decoder = JSONDecoder()
+                                let customErrorJson = try decoder.decode(CustomErrorJson.self, from: data)
+                                print(data)
+                                let error = CustomError(
+                                    title: customErrorJson.statusMessage,
+                                    description: customErrorJson.statusMessage,
+                                    code: customErrorJson.statusCode
+                                )
+                                print("API_ERROR: url \(url)")
+                                print("API_ERROR: statusCode \(error.code)")
+                                observer.onError(error)
+                            } catch let error {
+                                print("JSON_DECODER_API_ERROR: \(error.localizedDescription)")
+                                observer.onError(error)
+                            }
+                        }
                     }
-                }
-                
-                observer.onCompleted()
-            }.resume()
-            
-            return Disposables.create {
-                session.finishTasksAndInvalidate()
+                    observer.onCompleted()
             }
+            
+            
+            return Disposables.create {}
         }
+        
     }
     
-    private func addAuthParameters() -> String {
+    private func getAuthParameters() -> [String: Any] {
         let timestamp = String(Date().timeIntervalSince1970 * 1000000)
         let apikey = Constants.api_keys.public
         let hash = self.md5("\(timestamp)\(Constants.api_keys.private)\(Constants.api_keys.public)")
-        
-        return "?apikey=" + apikey + "&ts=" + timestamp + "&hash=" + hash
+        return [
+            "apikey": apikey,
+            "ts": timestamp,
+            "hash": hash
+        ]
     }
+   
     
     private func md5(_ string: String) -> String {
         let length = Int(CommonCrypto.CC_MD5_DIGEST_LENGTH)
@@ -110,18 +123,18 @@ class Request {
 protocol OurErrorProtocol: LocalizedError {
 
     var title: String { get }
-    var code: Int { get }
+    var code: String { get }
 }
 
 struct CustomError: OurErrorProtocol {
     var title: String
-    var code: Int
+    var code: String
     var errorDescription: String? { return _description }
     var failureReason: String? { return _description }
 
     private var _description: String
 
-    init(title: String, description: String = "", code: Int = 0) {
+    init(title: String, description: String = "", code: String = "0") {
         self.title = title
         self._description = description
         self.code = code
@@ -129,13 +142,11 @@ struct CustomError: OurErrorProtocol {
 }
 
 struct CustomErrorJson: Codable {
-    let statusCode: Int
+    let statusCode: String
     let statusMessage: String
-    let success: Bool
     
     enum CodingKeys: String, CodingKey {
-        case statusCode = "status_code"
-        case statusMessage = "status_message"
-        case success
+        case statusCode = "code"
+        case statusMessage = "message"
     }
 }

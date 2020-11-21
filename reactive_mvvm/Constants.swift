@@ -26,8 +26,8 @@ struct Constants {
     }
     
     struct api_keys {
-        static let `public` = ""
-        static let `private` = ""
+        static let `public` = "7c02c27437aa8d5892e6018c6dac3b1a"
+        static let `private` = "b728c42f5b54f8ad3d45f56b8a9baba8678d732d"
     }
     
     

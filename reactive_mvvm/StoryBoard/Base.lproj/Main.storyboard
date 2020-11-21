@@ -112,7 +112,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your user or email here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8F-iI-PzS">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="asd@asd.asd" borderStyle="roundedRect" placeholder="Type your user or email here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S8F-iI-PzS">
                                         <rect key="frame" x="20" y="420.5" width="374" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="2PC-RJ-JDl"/>
@@ -129,7 +129,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your password here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-WU-CQR">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Type your password here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-WU-CQR">
                                         <rect key="frame" x="20" y="516.5" width="374" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="xqL-5d-1NW"/>
