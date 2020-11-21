@@ -31,9 +31,7 @@
 * Cocoa Pods (solo para Rx & Kingfisher)
 * Traducciones
 * Enviroments
-* Animaciones (sin librerías de terceros)
 * Patrones de diseño
-* Networking nativo (sin Alamofire)
 * Interface styles dark & light
 * Test unitarios
 * StoryBoards & xib (best for git)

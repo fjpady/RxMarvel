@@ -167,7 +167,7 @@ class CharacterListView: UIViewController {
     private func presentDetails(_ character: Character) {
         searchController.isActive = false
         
-        let vm = CharacterDetailsViewModel(character: character)
+        let vm = CharacterDetailsViewModel(character: character, apiManager: CharacterApiManager())
         characterDetailsView = CharacterDetailsView.create(viewModel: vm)
         
         characterDetailsView.modalPresentationStyle = .fullScreen

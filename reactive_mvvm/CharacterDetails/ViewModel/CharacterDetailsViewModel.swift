@@ -17,8 +17,17 @@ protocol CharacterDetailsViewModelProtocol {
 
 class CharacterDetailsViewModel: CharacterDetailsViewModelProtocol {
     
+    //MARK: Construct
+    init(character: Character, apiManager: CharacterApiManagerProtocol) {
+        self.character = character
+        self.apiManager = apiManager
+        
+        /// Esta variable es BehaviorSubject para que cuando entremos en la vista tengamos cargado el último valor, osea, el que teníamos en el listado. Después se descarga de la API el nuevo valor para la variable ya mas completo.
+        self.characterFetchedSubject = BehaviorSubject<Character>(value: character)
+    }
+    
     //MARK: Managers
-    private var apiManager = CharacterApiManager()
+    private var apiManager: CharacterApiManagerProtocol!
     
     //MARK: Properties
     private var character: Character!
@@ -57,22 +66,10 @@ class CharacterDetailsViewModel: CharacterDetailsViewModelProtocol {
         let error: Driver<CustomError>
     }
     
-    private(set) var input: Input!
-    private(set) var output: Output!
-    
-    
-    //MARK: Construct
-    init(character: Character) {
-        self.character = character
-        
-        /// Esta variable es BehaviorSubject para que cuando entremos en la vista tengamos cargado el último valor, osea, el que teníamos en el listado. Después se descarga de la API el nuevo valor para la variable ya mas completo.
-        self.characterFetchedSubject = BehaviorSubject<Character>(value: character)
-    }
     
     //MARK: Transform
     func transform(_ input: Input) -> Output {
-        self.input = input
-        self.output = Output(
+        let output = Output(
             character: characterFetch,
             comics: comicsFetch,
             stories: storiesFetch,

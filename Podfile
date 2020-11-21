@@ -12,7 +12,12 @@ def project_pods
     # -- Reactive
     pod 'RxSwift'
     pod 'RxCocoa'
+    
+    # -- Networking
+    pod 'ReachabilitySwift'
+    pod 'Alamofire' , '4.9.1'
     pod 'Kingfisher'
+    
     
 end
 

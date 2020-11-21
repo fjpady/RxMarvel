@@ -1,7 +1,9 @@
 PODS:
+  - Alamofire (4.9.1)
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
+  - ReachabilitySwift (5.0.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -12,26 +14,32 @@ PODS:
     - RxSwift (~> 5)
 
 DEPENDENCIES:
+  - Alamofire (= 4.9.1)
   - Kingfisher
+  - ReachabilitySwift
   - RxCocoa
   - RxSwift
   - RxTest
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
     - Kingfisher
+    - ReachabilitySwift
     - RxCocoa
     - RxRelay
     - RxSwift
     - RxTest
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   RxTest: 711632d5644dffbeb62c936a521b5b008a1e1faa
 
-PODFILE CHECKSUM: 5bceb07177d3837027e176a93bc52bb8485d1923
+PODFILE CHECKSUM: 07e89b6e8874f6612700c8ed3f6c03ff6318b97d
 
 COCOAPODS: 1.9.3

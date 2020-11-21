@@ -14,18 +14,21 @@ protocol CharacterListViewModelProtocol {
     func transform(_ input: CharacterListViewModel.Input) -> CharacterListViewModel.Output
     func getData()
     func tableViewScroll(to index: Int)
-    var output: CharacterListViewModel.Output! { get }
-    var characters: [Character] { get set }
 }
 
 class CharacterListViewModel: CharacterListViewModelProtocol {
     
+    //MARK: Construct
+    init(apiManager: CharacterApiManagerProtocol) {
+        self.apiManager = apiManager
+    }
+    
     //MARK: Managers
-    private var apiManager = CharacterApiManager()
+    private var apiManager: CharacterApiManagerProtocol!
     
     
     //MARK: Properties
-    var characters = [Character]()
+    private var characters = [Character]()
     private var ds = DownloadPageStatus()
 
     
@@ -63,13 +66,10 @@ class CharacterListViewModel: CharacterListViewModelProtocol {
         let downloading: Driver<Bool>
     }
     
-    private(set) var input: Input!
-    private(set) var output: Output!
     
     //MARK: Transform
     func transform(_ input: Input) -> Output {
-        self.input = input
-        self.output = Output(
+        let output = Output(
             filter: filterText(input),
             characters: characterFetch,
             error: ErrorFetch,
@@ -97,7 +97,7 @@ class CharacterListViewModel: CharacterListViewModelProtocol {
     private func getCharacters(page: DownloadPageStatus.PageElements, byAppend: Bool) {
         self.downloadedFetchedSubject.asObserver().onNext(false)
         
-        apiManager.getCharacterListWith(limit: "\(page.limit)", offset: "\(page.offset)")
+        apiManager.getCharacterListWith(limit: "\(page.limit)", offset: "\(page.offset)", name: nil)
         .subscribe(onNext: { characters in
             /// Si byAppend es true, añadimos los nuevos objetos al array de objetos actual
             if byAppend {

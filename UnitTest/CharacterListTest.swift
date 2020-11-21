@@ -16,6 +16,7 @@ import Foundation
 class CharacterListTest: XCTestCase {
 
     var viewModel : CharacterListViewModelProtocol!
+    var apiManager: CharacterApiManager!
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
     
@@ -24,7 +25,8 @@ class CharacterListTest: XCTestCase {
         super.setUp()
         self.scheduler = TestScheduler(initialClock: 0)
         self.disposeBag = DisposeBag()
-        self.viewModel = CharacterListViewModel()
+        self.apiManager = CharacterApiManager()
+        self.viewModel = CharacterListViewModel(apiManager: apiManager)
     }
     
     override class func tearDown() {
@@ -64,17 +66,18 @@ class CharacterListTest: XCTestCase {
     func testFilterCorrect() throws {
         let triggerReload = scheduler.createHotObservable([.next(0, ())])
         let result = scheduler.createObserver([Character].self)
+
+        let apiManager = MockCharacterListApiManager()
+        let viewModel = CharacterListViewModel(apiManager: apiManager)
         
         let resultData = Bundle.main.decode(ResultData.self, from: "TestFilterCharacters.json")
         let characters = resultData.getListOfCharacters()
-        
         let character0 = characters[0] // Personaje 00
         let character1 = characters[1] // Personaje 01
         let character2 = characters[2] // Personaje 02
         let character3 = characters[3] // Personaje 03
         let character4 = characters[4] // Personaje 04
         
-        viewModel.characters = [character0, character1, character2, character3, character4]
         
         /// Set up trigger
         let trigger = scheduler.createHotObservable(
@@ -90,7 +93,6 @@ class CharacterListTest: XCTestCase {
             ]
         )
         
-        
         let output = viewModel.transform(
             CharacterListViewModel.Input(
                 filteredText: trigger.asObservable(),
@@ -104,10 +106,12 @@ class CharacterListTest: XCTestCase {
         
         scheduler.start()
         
-        
+        /// La primera vez los devuelve todos por cargarlos de la API.
+        /// La segunda vez filtra
         XCTAssertEqual(
             result.events,
             [
+                .next(0, [character0, character1, character2, character3, character4]), /// MOCK api fetch
                 .next(0, [character0, character1, character2, character3, character4]),
                 .next(0, [character0, character1, character2, character3, character4]),
                 .next(0, [character1]),
@@ -119,6 +123,8 @@ class CharacterListTest: XCTestCase {
             ],
             "El resultado no ha sido el esperado"
         )
+        
+        
     }
     
     
@@ -132,3 +138,24 @@ class CharacterListTest: XCTestCase {
 
 }
 
+class MockCharacterListApiManager: CharacterApiManagerProtocol {
+    var disposeBag = DisposeBag()
+    
+    // - Función para obtener el listado de personajes
+    func getCharacterListWith(limit: String?, offset: String?, name: String? = nil) -> Observable<[Character]> {
+        
+        return Observable.create { observer in
+            let resultData = Bundle.main.decode(ResultData.self, from: "TestFilterCharacters.json")
+            let characters = resultData.getListOfCharacters()
+            observer.onNext(characters)
+            return Disposables.create{}
+        }
+        
+    }
+    
+    func getCharacterDetails(id: Int) -> Observable<Character> {
+        return Observable.create { observer in
+            return Disposables.create{}
+        }
+    }
+}
