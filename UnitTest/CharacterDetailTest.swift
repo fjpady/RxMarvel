@@ -15,23 +15,25 @@ import Foundation
 
 class CharacterDetailTest: XCTestCase {
 
-    var viewModel : CharacterDetailsViewModel!
+    var viewModel: CharacterDetailsViewModel!
     var character: Character!
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
+    var apiManager: CharacterApiManager!
     
     
     override func setUp() {
         super.setUp()
         self.scheduler = TestScheduler(initialClock: 0)
         self.disposeBag = DisposeBag()
+        self.apiManager = CharacterApiManager()
         
         let resultData = Bundle.main.decode(
             ResultData.self,
             from: "TestCharacterDetails.json"
         )
         self.character = resultData.getListOfCharacters().first!
-        self.viewModel = CharacterDetailsViewModel(character: character)
+        self.viewModel = CharacterDetailsViewModel(character: character, apiManager: apiManager)
     }
     
     override class func tearDown() {

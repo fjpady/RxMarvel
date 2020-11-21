@@ -163,7 +163,7 @@ class LoginView: UIViewController {
     }
     
     private func goToCharacterList() {
-        characterListView = CharacterListView.create(viewModel: CharacterListViewModel())
+        characterListView = CharacterListView.create(viewModel: CharacterListViewModel(apiManager: CharacterApiManager()))
         characterListView.modalPresentationStyle = .fullScreen
         self.present(characterListView, animated: true, completion: nil)
     }

@@ -10,7 +10,15 @@ import Foundation
 import RxSwift
 import Alamofire
 
-class CharacterApiManager {
+protocol CharacterApiManagerProtocol {
+    /// Function for fetch character list
+    func getCharacterListWith(limit: String?, offset: String?, name: String?) -> Observable<[Character]>
+    
+    /// Function for fetch character details
+    func getCharacterDetails(id: Int) -> Observable<Character>
+}
+
+class CharacterApiManager: CharacterApiManagerProtocol {
     
     var disposeBag = DisposeBag()
     
